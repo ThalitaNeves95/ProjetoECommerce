@@ -1,8 +1,12 @@
-// Constroi a Aplicação
+using API_ECommerce.Context;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+builder.Services.AddTransient<EcommerceContext, EcommerceContext>();
+
 var app = builder.Build();
 
-// app.MapGet("/", () => "Hello World!");
+app.MapControllers();
 
-// Roda a aplicação
 app.Run();
