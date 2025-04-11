@@ -3,7 +3,7 @@ using API_ECommerce.Models;
 
 namespace API_ECommerce.Interfaces
 {
-    public interface IItemRepository
+    public interface IItemPedidoRepository
     {
         // Read - Ler
         List<ItemPedido> ListarTodos();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fic\\Downloads\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj": {}
+    "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fic\\Downloads\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj": {
+    "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fic\\Downloads\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
+        "projectUniqueName": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
         "projectName": "API-ECommerce",
-        "projectPath": "C:\\Users\\fic\\Downloads\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
+        "projectPath": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
         "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fic\\Downloads\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\obj\\",
+        "outputPath": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
