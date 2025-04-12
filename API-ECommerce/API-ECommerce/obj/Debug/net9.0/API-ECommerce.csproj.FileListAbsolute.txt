@@ -489,3 +489,8 @@ C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\obj\Debug\net9
 C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\obj\Debug\net9.0\API-ECom.5F7F2A60.Up2Date
 C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\obj\Debug\net9.0\API-ECommerce.genruntimeconfig.cache
 C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\obj\Debug\net9.0\ref\API-ECommerce.dll
+C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\bin\Debug\net9.0\Microsoft.OpenApi.dll
+C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\fic\Desktop\ProjetoECommerce\API-ECommerce\API-ECommerce\obj\Debug\net9.0\API-ECommerce.MvcApplicationPartsAssemblyInfo.cs

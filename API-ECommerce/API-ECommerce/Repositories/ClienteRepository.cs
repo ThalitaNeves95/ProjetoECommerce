@@ -17,6 +17,8 @@ namespace API_ECommerce.Repositories
         // Quando criar um objeto o que eu preciso ter?
         // É semelhante ao new()
         // Ação de Injetar
+
+        // Metodo Construtor - É um metodo que tem o mesmo nome da classe
         public ClienteRepository(EcommerceContext context)
         {
             _context = context;

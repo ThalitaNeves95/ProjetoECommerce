@@ -20,8 +20,10 @@ namespace API_ECommerce.Controllers
             _clienteRepository = new ClienteRepository(_context);
         }
 
-        // GET - Listar
-        [HttpGet]
+        // GET
+        // Criar metodo de listar
+        [HttpGet] // Verbo que o endpoint vai ter - Get, Post, Put ou Delete
+        // IActionResult = Interface que vem do .net - Permite que um metodo retorne um status code
         public IActionResult ListarClientes()
         {
             return Ok(_clienteRepository.ListarTodos());

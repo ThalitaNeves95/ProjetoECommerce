@@ -12,6 +12,7 @@ namespace API_ECommerce.Controllers
     {
         private readonly EcommerceContext _context;
 
+        // Váriavel privada que traz o Repository
         private IPedidoRepository _pedidoRepository;
 
         public PedidoController(EcommerceContext context)
@@ -21,9 +22,12 @@ namespace API_ECommerce.Controllers
         }
 
         // GET - Listar
+        // 1. Definir o VERBO
         [HttpGet]
+        // IActionResult = Interface que vem do .net - Permite que um metodo retorne um status code
         public IActionResult ListarPedidos()
         {
+            // Retorna a váriavel privada que traz o Repository
             return Ok(_pedidoRepository.ListarTodos());
         }
     }
