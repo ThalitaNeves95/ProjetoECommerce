@@ -35,6 +35,11 @@ namespace API_ECommerce.Repositories
             _context.Pedidos.Add(pedido);
         }
 
+        public void Cadastrar(Produto pedido)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Deletar(int id)
         {
             throw new NotImplementedException();

@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,27 +9,35 @@ namespace API_ECommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PedidoController : ControllerBase
+    public class PagamentoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
-
         // Váriavel privada que traz o Repository
-        private IPedidoRepository _pedidoRepository;
+        private IPagamentoRepository _pagamentoRepository;
 
-        public PedidoController(EcommerceContext context)
+        public PagamentoController(IPagamentoRepository pagamentoRepository)
         {
-            _context = context;
-            _pedidoRepository = new PedidoRepository(_context);
+            _pagamentoRepository = pagamentoRepository;
         }
 
         // GET - Listar
         // 1. Definir o VERBO
         [HttpGet]
         // IActionResult = Interface que vem do .net - Permite que um metodo retorne um status code
-        public IActionResult ListarPedidos()
+        public IActionResult ListarPagamentos()
         {
             // Retorna a váriavel privada que traz o Repository
-            return Ok(_pedidoRepository.ListarTodos());
+            return Ok(_pagamentoRepository.ListarTodos());
+        }
+
+        [HttpPost]
+        public IActionResult CadastrarPagamento(Pagamento pagamento)
+        {
+            // 1 - Coloco o produto no Banco de Dados
+            _pagamentoRepository.Cadastrar(pagamento);
+
+            // 3 - Retorno o resultado
+            // 201 - Created
+            return Created();
         }
     }
 }

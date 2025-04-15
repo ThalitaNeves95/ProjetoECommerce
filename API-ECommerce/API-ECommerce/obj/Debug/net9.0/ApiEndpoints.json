@@ -10,6 +10,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_ECommerce.Controllers.ClienteController",
+    "Method": "CadastrarCliente",
+    "RelativePath": "api/Cliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cliente",
+        "Type": "API_ECommerce.Models.Cliente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
     "Method": "ListarItemPedidos",
     "RelativePath": "api/ItemPedido",
@@ -17,6 +33,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ItemPedidoController",
+    "Method": "CadastrarItemPedido",
+    "RelativePath": "api/ItemPedido",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "itemPedido",
+        "Type": "API_ECommerce.Models.ItemPedido",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -30,6 +62,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "API_ECommerce.Controllers.PagamentoController",
+    "Method": "CadastrarPagamento",
+    "RelativePath": "api/Pagamento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pagamento",
+        "Type": "API_ECommerce.Models.Pagamento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API_ECommerce.Controllers.PedidoController",
     "Method": "ListarPedidos",
     "RelativePath": "api/Pedido",
@@ -37,6 +85,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.PedidoController",
+    "Method": "CadastrarPedido",
+    "RelativePath": "api/Pedido",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pedido",
+        "Type": "API_ECommerce.Models.Pedido",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

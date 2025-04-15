@@ -5,20 +5,21 @@ using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+// O Controller precisa de um repository
 namespace API_ECommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
-
         private IProdutoRepository _produtoRepository;
 
-        public ProdutoController(EcommerceContext context)
+        // Injeção de Dependência
+        // Ao invés de instanciar a classe manualmente, eu aviso que dependo dela. E a responsabilidade de criar a mesma se torna do (C#)
+        public ProdutoController(IProdutoRepository produtoRepository)
         {
-            _context = context;
-            _produtoRepository = new ProdutoRepository(_context);
+            // Criar o repository não deve ser uma responsabilidade do Controller
+            _produtoRepository = produtoRepository;
         }
 
         // GET - Listar
@@ -27,6 +28,7 @@ namespace API_ECommerce.Controllers
         {
             return Ok(_produtoRepository.ListarTodos());
         }
+
         // Navegador so faz o GET
         // Post - Cadastrar
         [HttpPost]
@@ -34,9 +36,6 @@ namespace API_ECommerce.Controllers
         {
             // 1 - Coloco o produto no Banco de Dados
             _produtoRepository.Cadastrar(prod);
-
-            // 2 - Salvo a Alteração
-            _context.SaveChanges();
 
             // 3 - Retorno o resultado
             // 201 - Created

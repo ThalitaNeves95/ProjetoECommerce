@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,23 +9,33 @@ namespace API_ECommerce.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PagamentoController : ControllerBase
+    public class PedidoController : ControllerBase
     {
-        private readonly EcommerceContext _context;
+        private IPedidoRepository _pedidoRepository;
 
-        private IPagamentoRepository _pagamentoRepository;
-
-        public PagamentoController(EcommerceContext context)
+        public PedidoController(IPedidoRepository pedidoRepository)
         {
-            _context = context;
-            _pagamentoRepository = new PagamentoRepository(_context);
+            _pedidoRepository = pedidoRepository;
         }
 
         // GET - Listar
         [HttpGet]
-        public IActionResult ListarPagamentos()
+        public IActionResult ListarPedidos()
         {
-            return Ok(_pagamentoRepository.ListarTodos());
+            return Ok(_pedidoRepository.ListarTodos());
+        }
+
+        // Navegador so faz o GET
+        // Post - Cadastrar
+        [HttpPost]
+        public IActionResult CadastrarPedido(Pedido pedido)
+        {
+            // 1 - Coloco o produto no Banco de Dados
+            _pedidoRepository.Cadastrar(pedido);
+
+            // 3 - Retorno o resultado
+            // 201 - Created
+            return Created();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
+using API_ECommerce.Models;
 using API_ECommerce.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,14 +11,12 @@ namespace API_ECommerce.Controllers
     [ApiController]
     public class ClienteController : ControllerBase
     {
-        private readonly EcommerceContext _context;
-
         private IClienteRepository _clienteRepository;
+
         // Todo metodo contrutor, tem que ter o mesmo nome da class
-        public ClienteController(EcommerceContext context)
+        public ClienteController(IClienteRepository clienteRepository)
         {
-            _context = context;
-            _clienteRepository = new ClienteRepository(_context);
+            _clienteRepository = clienteRepository;
         }
 
         // GET
@@ -27,6 +26,19 @@ namespace API_ECommerce.Controllers
         public IActionResult ListarClientes()
         {
             return Ok(_clienteRepository.ListarTodos());
+        }
+
+        // Navegador so faz o GET
+        // Post - Cadastrar
+        [HttpPost]
+        public IActionResult CadastrarCliente(Cliente cliente)
+        {
+            // 1 - Coloco o cliente no Banco de Dados
+            _clienteRepository.Cadastrar(cliente);
+
+            // 3 - Retorno o resultado
+            // 201 - Created
+            return Created();
         }
     }
 }
