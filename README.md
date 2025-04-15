@@ -1,4 +1,4 @@
-#### Projeto E-Commerce 🛒
+# Projeto E-Commerce 🛒
 
-# Modelar o banco de dados (Conceitual, Lógico e Físico)
+### Modelar o banco de dados (Conceitual, Lógico e Físico)
 
