@@ -42,11 +42,22 @@ namespace API_ECommerce.Repositories
         public void Cadastrar(Cliente cliente)
         {
             _context.Clientes.Add(cliente);
+            // 2 - Salvo a Alteração
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Produto produtoEncontrado = _context.Produtos.Find(id);
+
+            if (produtoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.Produtos.Remove(produtoEncontrado);
+
+            _context.SaveChanges();
         }
 
         public List<Cliente> ListarTodos()

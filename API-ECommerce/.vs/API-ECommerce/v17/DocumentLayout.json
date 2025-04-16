@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\api-ecommerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\api-ecommerce.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\repositories\\produtorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\repositories\\produtorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "API-ECommerce",
-              "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
-              "RelativeDocumentMoniker": "API-ECommerce\\API-ECommerce.csproj",
-              "ToolTip": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\API-ECommerce.csproj",
-              "RelativeToolTip": "API-ECommerce\\API-ECommerce.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-15T00:14:01.37Z",
+              "Title": "ProdutoRepository.cs",
+              "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Repositories\\ProdutoRepository.cs",
+              "RelativeDocumentMoniker": "API-ECommerce\\Repositories\\ProdutoRepository.cs",
+              "ToolTip": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Repositories\\ProdutoRepository.cs",
+              "RelativeToolTip": "API-ECommerce\\Repositories\\ProdutoRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-16T00:43:20.811Z",
               "EditorCaption": ""
             }
           ]
