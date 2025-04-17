@@ -35,7 +35,7 @@ namespace API_ECommerce.Repositories
             return _context.Produtos.FirstOrDefault(p => p.IdProduto == id);
         }
 
-        public void Atualizar(int id, Produto produto)
+        public void Atualizar(int id, Produto prod)
         {
             // Encontrar o produto a ser atualizado
             Produto ProdutoEncontrado = _context.Produtos.Find(id);
@@ -45,12 +45,12 @@ namespace API_ECommerce.Repositories
                 throw new Exception();
             }
 
-            ProdutoEncontrado.NomeProduto = produto.NomeProduto;
-            ProdutoEncontrado.Descricao = produto.NomeProduto;
-            ProdutoEncontrado.Preco = produto.Preco;
-            ProdutoEncontrado.Estoque = produto.Estoque;
-            ProdutoEncontrado.Categoria = produto.Categoria;
-            ProdutoEncontrado.Imagem = produto.Imagem;
+            ProdutoEncontrado.NomeProduto = prod.NomeProduto;
+            ProdutoEncontrado.Descricao = prod.Descricao;
+            ProdutoEncontrado.Preco = prod.Preco;
+            ProdutoEncontrado.Estoque = prod.Estoque;
+            ProdutoEncontrado.Categoria = prod.Categoria;
+            ProdutoEncontrado.Imagem = prod.Imagem;
 
             _context.SaveChanges();
         }
@@ -64,15 +64,19 @@ namespace API_ECommerce.Repositories
 
         public void Deletar(int id)
         {
-            // Encontrar o que eu quero excluir
-            Produto produtoEncontrado = _context.Produtos.Find(id);
+            // 1 - encontrar o que eu quero excluir
+            Produto produtoEncontrado = _context.Produtos.Find(id); // Find - Procura apenas pela chave primaria
 
-            // Caso não encontre o produto, lanço um erro
+            // Tratamento de erro
             if (produtoEncontrado == null)
             {
                 throw new Exception();
             }
 
+            // 2 - Caso eu enconte o produto, removo ele
+            _context.Produtos.Remove(produtoEncontrado);
+
+            // 3 - Salvo as alteracoes
             _context.SaveChanges();
         }
 

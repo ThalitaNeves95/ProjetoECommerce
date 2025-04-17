@@ -40,5 +40,49 @@ namespace API_ECommerce.Controllers
             // 201 - Created
             return Created();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            Cliente cliente = _clienteRepository.BuscarPorId(id);
+
+            if (cliente == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(cliente);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, Cliente cliente)
+        {
+            try
+            {
+                _clienteRepository.Atualizar(id, cliente);
+                return Ok(cliente);
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound("Cliente não encontrado!");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _clienteRepository.Deletar(id);
+                return NoContent();
+            }
+
+            catch (Exception ex)
+            {
+                return NotFound("Cliente não encontrado!");
+            }
+        }
     }
 }

@@ -60,12 +60,12 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Produto produto)
+        public IActionResult Editar(int id, Produto prod)
         {
             try
             {
-                _produtoRepository.Atualizar(id, produto);
-                return Ok(produto);
+                _produtoRepository.Atualizar(id, prod);
+                return Ok(prod);
             }
             catch (Exception ex)
             {
@@ -80,10 +80,9 @@ namespace API_ECommerce.Controllers
             try
             {
                 _produtoRepository.Deletar(id);
-                
                 return NoContent();
             }
-            // Caso dê erro
+
             catch (Exception ex)
             {
                 return NotFound("Produto não encontrado!");

@@ -17,7 +17,7 @@ namespace API_ECommerce.Interfaces
 
         // U - Update (Atualização)
         // Recebe um identificador para achar o Produto, e recebe o Produto Novo para subistituir o Antigo
-        void Atualizar(int id, Produto produto);
+        void Atualizar(int id, Produto prod);
 
         // D - Delete (Deleção)
         // Recebe o identificador de quem quero excluir
