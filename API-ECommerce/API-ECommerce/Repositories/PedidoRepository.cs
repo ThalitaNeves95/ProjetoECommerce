@@ -22,17 +22,33 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, Pedido pedido)
         {
-            throw new NotImplementedException();
+
+            Pedido pedidoEncontrado = _context.Pedidos.Find(id);
+
+            if (pedidoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            pedidoEncontrado.DataPedido = pedido.DataPedido;
+            pedidoEncontrado.StatusPedido = pedido.StatusPedido;
+            pedidoEncontrado.ValorTotal = pedido.ValorTotal;
+            pedidoEncontrado.IdCliente = pedido.IdCliente;
+
+            _context.SaveChanges();
         }
 
         public Pedido BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Pedidos.FirstOrDefault(c => c.IdPedido == id);
+
         }
 
         public void Cadastrar(Pedido pedido)
         {
             _context.Pedidos.Add(pedido);
+
+            _context.SaveChanges();
         }
 
         public void Cadastrar(Produto pedido)
@@ -42,7 +58,16 @@ namespace API_ECommerce.Repositories
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Pedido pedidoEncontrado = _context.Pedidos.Find(id);
+
+            if (pedidoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.Pedidos.Remove(pedidoEncontrado);
+
+            _context.SaveChanges();
         }
 
         public List<Pedido> ListarTodos()

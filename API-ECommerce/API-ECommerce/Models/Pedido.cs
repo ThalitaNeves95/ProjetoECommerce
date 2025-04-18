@@ -7,9 +7,9 @@ public partial class Pedido
 {
     public int IdPedido { get; set; }
 
-    public DateOnly? DataPedido { get; set; }
+    public DateOnly DataPedido { get; set; }
 
-    public string? StatusPedido { get; set; }
+    public string StatusPedido { get; set; } = null!;
 
     public decimal? ValorTotal { get; set; }
 

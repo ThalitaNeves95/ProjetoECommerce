@@ -35,6 +35,7 @@ namespace API_ECommerce.Repositories
 
             ClienteEncontrado.NomeCompleto = cliente.NomeCompleto;
             ClienteEncontrado.Email = cliente.Email;
+            ClienteEncontrado.Senha = cliente.Senha;
             ClienteEncontrado.Telefone = cliente.Telefone;
             ClienteEncontrado.Endereco = cliente.Endereco;
             ClienteEncontrado.DataCadastro = cliente.DataCadastro;

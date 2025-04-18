@@ -39,5 +39,49 @@ namespace API_ECommerce.Controllers
             // 201 - Created
             return Created();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            Pagamento pagamento = _pagamentoRepository.BuscarPorId(id);
+
+            if (pagamento == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(pagamento);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, Pagamento pagamento)
+        {
+            try
+            {
+                _pagamentoRepository.Atualizar(id, pagamento);
+                return Ok(pagamento);
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound("Pagamento não encontrado!");
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _pagamentoRepository.Deletar(id);
+                return NoContent();
+            }
+
+            catch (Exception ex)
+            {
+                return NotFound("Pagamento não encontrado!");
+            }
+        }
     }
 }

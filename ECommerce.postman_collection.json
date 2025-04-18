@@ -1,0 +1,816 @@
+{
+	"info": {
+		"_postman_id": "5bf60b29-f00c-4c8f-b991-cee5de16535f",
+		"name": "ECommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18027600"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cadastrar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response time is within an acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeCompleto\": \"Dolores\",\r\n  \"email\": \"dodoshaka@gmail.com\",\r\n  \"senha\": \"12334\",\r\n  \"telefone\": \"11949219877\",\r\n  \"endereco\": \"Rua Major Sertório, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarTodos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response time is within an acceptable range\", function () {\r",
+									"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"array\",\r",
+									"    items: {\r",
+									"      type: \"object\",\r",
+									"      properties: {\r",
+									"        idCliente: { type: \"number\" },\r",
+									"        nomeCompleto: { type: \"string\" },\r",
+									"        email: { type: \"string\", format: \"email\" },\r",
+									"        senha: { type: \"string\" },\r",
+									"        telefone: { type: \"string\" },\r",
+									"        endereco: { type: \"string\" },\r",
+									"        dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"        pedidos: { type: \"array\" }\r",
+									"      },\r",
+									"      required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"]\r",
+									"    }\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idCliente: { type: \"number\" },\r",
+									"      nomeCompleto: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      senha: { type: \"string\" },\r",
+									"      telefone: { type: \"string\" },\r",
+									"      endereco: { type: \"string\" },\r",
+									"      dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"      pedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/cliente/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idCliente: { type: \"number\" },\r",
+									"      nomeCompleto: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      senha: { type: \"string\" },\r",
+									"      telefone: { type: \"string\" },\r",
+									"      endereco: { type: \"string\" },\r",
+									"      dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"      pedidos: { type: \"array\" },\r",
+									"    },\r",
+									"    required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeCompleto\": \"Gal Zislene\",\r\n  \"email\": \"galatodovapor@gmail.com\",\r\n  \"telefone\": \"11949279818\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/cliente/4",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/cliente/13",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente",
+								"13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "ListarTodos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"array\",\r",
+									"    items: {\r",
+									"      type: \"object\",\r",
+									"      properties: {\r",
+									"        idProduto: { type: \"number\" },\r",
+									"        nomeProduto: { type: \"string\" },\r",
+									"        descricao: { type: \"string\" },\r",
+									"        preco: { type: \"number\" },\r",
+									"        estoque: { type: \"number\" },\r",
+									"        categoria: { type: \"string\" },\r",
+									"        imagem: { type: \"string\" },\r",
+									"        itemPedidos: { type: \"array\" }\r",
+									"      },\r",
+									"      required: [\"idProduto\", \"nomeProduto\", \"descricao\", \"preco\", \"estoque\", \"categoria\", \"imagem\", \"itemPedidos\"]\r",
+									"    }\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CadastrarProduto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeProduto\": \"Apple iPhone 16\",\r\n  \"descricao\": \"Apple iPhone 16 128GB Preto 6,1 48MP iOS 5G\",\r\n  \"preco\": 5199.99,\r\n  \"estoque\": 10,\r\n  \"categoria\": \"Smartphones\",\r\n  \"imagem\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/produto",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"produto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idProduto: { type: \"number\" },\r",
+									"      nomeProduto: { type: \"string\" },\r",
+									"      descricao: { type: \"string\" },\r",
+									"      preco: { type: \"number\" },\r",
+									"      estoque: { type: \"number\" },\r",
+									"      categoria: { type: \"string\" },\r",
+									"      imagem: { type: \"string\" },\r",
+									"      itemPedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idProduto\", \"nomeProduto\", \"descricao\", \"preco\", \"estoque\", \"categoria\", \"imagem\", \"itemPedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nomeProduto\": \"Polar Verity Sense\",\r\n  \"descricao\": \"Sensor Óptico de Frequência Cardíaca\",\r\n  \"preco\": 859,\r\n  \"estoque\": 25,\r\n  \"categoria\": \"Acessórios\",\r\n  \"imagem\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/produto/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"produto",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarPorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idProduto: { type: \"number\" },\r",
+									"      nomeProduto: { type: \"string\" },\r",
+									"      descricao: { type: \"string\" },\r",
+									"      preco: { type: \"number\" },\r",
+									"      estoque: { type: \"number\" },\r",
+									"      categoria: { type: \"string\" },\r",
+									"      imagem: { type: \"string\" },\r",
+									"      itemPedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idProduto\", \"nomeProduto\", \"descricao\", \"preco\", \"estoque\", \"categoria\", \"imagem\", \"itemPedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/produto/6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"produto",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/produto/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"produto",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "ListarTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idCliente: { type: \"number\" },\r",
+									"      nomeCompleto: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      senha: { type: \"string\" },\r",
+									"      telefone: { type: \"string\" },\r",
+									"      endereco: { type: \"string\" },\r",
+									"      dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"      pedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pedido/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pedido",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ItemPedido",
+			"item": []
+		},
+		{
+			"name": "Pagamento",
+			"item": [
+				{
+					"name": "ListarTodos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"array\",\r",
+									"    items: {\r",
+									"      type: \"object\",\r",
+									"      properties: {\r",
+									"        idPagamento: { type: \"number\" },\r",
+									"        formaPagamento: { type: \"string\" },\r",
+									"        statusPagamento: { type: \"string\" },\r",
+									"        dataPagamento: { type: \"string\" },\r",
+									"        idPedido: { type: \"number\" },\r",
+									"        idPedidoNavigation: { type: [\"object\", \"null\"] }\r",
+									"      },\r",
+									"      required: [\"idPagamento\", \"formaPagamento\", \"statusPagamento\", \"dataPagamento\", \"idPedido\"]\r",
+									"    }\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pagamento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarPorId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idPagamento: { type: \"number\" },\r",
+									"      formaPagamento: { type: \"string\" },\r",
+									"      statusPagamento: { type: \"string\" },\r",
+									"      dataPagamento: { type: \"string\" },\r",
+									"      idPedido: { type: \"number\" },\r",
+									"      idPedidoNavigation: { type: [\"object\", \"null\"] }\r",
+									"    },\r",
+									"    required: [\"idPagamento\", \"formaPagamento\", \"statusPagamento\", \"dataPagamento\", \"idPedido\"]\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pagamento/8",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pagamento",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"formaPagamento\": \"Débito\",\r\n  \"statusPagamento\": \"Pix\",\r\n  \"dataPagamento\": \"2025-04-16T22:35:39.558Z\",\r\n  \"idPedido\": \"3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/pagamento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"formaPagamento\": \"Débito\",\r\n  \"statusPagamento\": \"Pago\",\r\n  \"dataPagamento\": \"2025-04-17T22:35:39.558Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/pagamento",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pagamento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pagamento/5",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pagamento",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

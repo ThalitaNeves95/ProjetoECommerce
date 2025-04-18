@@ -22,22 +22,45 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, Pagamento pagamento)
         {
-            throw new NotImplementedException();
+            Pagamento PagamentoEncontrado = _context.Pagamentos.Find(id);
+
+            if (PagamentoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            PagamentoEncontrado.FormaPagamento = pagamento.FormaPagamento;
+            PagamentoEncontrado.StatusPagamento = pagamento.StatusPagamento;
+            PagamentoEncontrado.DataPagamento = pagamento.DataPagamento;
+            PagamentoEncontrado.IdPagamento = pagamento.IdPagamento;
+
+            _context.SaveChanges();
         }
 
         public Pagamento BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.Pagamentos.FirstOrDefault(c => c.IdPagamento == id);
         }
 
         public void Cadastrar(Pagamento pagamento)
         {
             _context.Pagamentos.Add(pagamento);
+
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            Pagamento pagamentoEncontrado = _context.Pagamentos.Find(id);
+
+            if (pagamentoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.Pagamentos.Remove(pagamentoEncontrado);
+
+            _context.SaveChanges();
         }
 
         public List<Pagamento> ListarTodos()

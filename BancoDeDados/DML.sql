@@ -19,12 +19,12 @@ VALUES
 
 SELECT * FROM Produto
 
-INSERT INTO Cliente (NomeCompleto, Email, Telefone, Endereco, DataCadastro)
+INSERT INTO Cliente (NomeCompleto, Email, Telefone, Endereco, DataCadastro, Senha)
 VALUES 
-('Josefina da Silva', 'zezinha@gmail.com', '(11)987654444', 'Rua dos Loucos, 0 - Sao Paulo/SP', '05/04/2025'),
-('Thalita Neves', 'mavini@gmail.com', '(11)949274848', 'Rua Niteroi, 180 - São Caetano do Sul/SP', '05/04/2025'),
-('Daniel Gutierrez', 'danigu@gmail.com', '(11)987652222', 'Rua Copacabana, 180 - São Bernardo do Campo/SP', '05/04/2025'),
-('Jessica Silva', 'jesilva@gmail.com', '(11)987651111', 'Rua Amazonas, 180 - São Paulo/SP', '05/04/2025');
+('Josefina da Silva', 'zezinha@gmail.com', '(11)987654444', 'Rua dos Loucos, 0 - Sao Paulo/SP', '05/04/2025', '123456'),
+('Thalita Neves', 'mavini@gmail.com', '(11)949274848', 'Rua Niteroi, 180 - São Caetano do Sul/SP', '05/04/2025', '121212'),
+('Daniel Gutierrez', 'danigu@gmail.com', '(11)987652222', 'Rua Copacabana, 180 - São Bernardo do Campo/SP', '05/04/2025', '232323'),
+('Jessica Silva', 'jesilva@gmail.com', '(11)987651111', 'Rua Amazonas, 180 - São Paulo/SP', '05/04/2025', '454545');
 
 SELECT * FROM Cliente
 
@@ -42,11 +42,11 @@ VALUES
 
 SELECT * FROM Pedido
 
-INSERT INTO Pagamento (FormaPagamento, StatusPagamento, IdPedido)
+INSERT INTO Pagamento (FormaPagamento, StatusPagamento, IdPedido, DataPagamento)
 VALUES
-('Cartão de Crédito', 'Pago', 1), -- Pagamento de um pedido de Marcos Vinicius
-('Boleto Bancário', 'Pendente', 2), -- Pagamento de um pedido de Daniel Gutierrez
-('PIX', 'Cancelado', 3); -- Pagamento de um pedido de Jessica Silva
+('Cartão de Crédito', 'Pago', 1, '17/04/2025 20:12:10'), -- Pagamento de um pedido de Marcos Vinicius
+('Boleto Bancário', 'Pendente', 2, '16/04/2025 20:12:10'), -- Pagamento de um pedido de Daniel Gutierrez
+('PIX', 'Cancelado', 3, '10/04/2025 15:12:55'); -- Pagamento de um pedido de Jessica Silva
 
 SELECT * FROM Pagamento
 
