@@ -35,5 +35,50 @@ namespace API_ECommerce.Controllers
             // 201 - Created
             return Created();
         }
+
+        [HttpGet("{id}")]
+        public IActionResult ListarPorId(int id)
+        {
+            ItemPedido itemPedidoEncontrado = _itemPedidoRepository.BuscarPorId(id);
+
+            if (itemPedidoEncontrado == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(itemPedidoEncontrado);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Editar(int id, ItemPedido itemPedido)
+        {
+            try
+            {
+                _itemPedidoRepository.Atualizar(id, itemPedido);
+                return Ok(itemPedido);
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound("Item pedido não encontrado!");
+            }
+        }
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Deletar(int id)
+        {
+            try
+            {
+                _itemPedidoRepository.Deletar(id);
+                return NoContent();
+            }
+
+            catch (Exception ex)
+            {
+                return NotFound("Item pedido não encontrado!");
+            }
+        }
     }
 }

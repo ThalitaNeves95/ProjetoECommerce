@@ -8,7 +8,7 @@ namespace API_ECommerce.Interfaces
         // Read - Ler
         List<ItemPedido> ListarTodos();
 
-        ItemPedido BuscarPorId(int id);
+        ItemPedido? BuscarPorId(int id);
 
         // Create
         void Cadastrar(ItemPedido itemPedido);

@@ -22,22 +22,44 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, ItemPedido itemPedido)
         {
-            throw new NotImplementedException();
+            ItemPedido itemPedidoEncontrado = _context.ItemPedidos.Find(id);
+
+            if (itemPedidoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            itemPedidoEncontrado.Quantidade = itemPedido.Quantidade;
+            itemPedidoEncontrado.IdPedido = itemPedido.IdPedido;
+            itemPedidoEncontrado.IdProduto = itemPedido.IdProduto;
+
+            _context.SaveChanges();
         }
 
-        public ItemPedido BuscarPorId(int id)
+        public ItemPedido? BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            return _context.ItemPedidos.FirstOrDefault(c => c.IdItemPedido == id);
         }
 
         public void Cadastrar(ItemPedido itemPedido)
         {
             _context.ItemPedidos.Add(itemPedido);
+
+            _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            throw new NotImplementedException();
+            ItemPedido itemPedidoEncontrado = _context.ItemPedidos.Find(id);
+
+            if (itemPedidoEncontrado == null)
+            {
+                throw new Exception();
+            }
+
+            _context.ItemPedidos.Remove(itemPedidoEncontrado);
+
+            _context.SaveChanges();
         }
 
         public List<ItemPedido> ListarTodos()

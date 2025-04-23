@@ -8,9 +8,9 @@ namespace API_ECommerce.Interfaces
         // Read - Ler
         List<Cliente> ListarTodos();
 
-        Cliente BuscarPorId(int id);
+        Cliente? BuscarPorId(int id);
 
-        Cliente BuscarPorEmailSenha(string email, string senha);
+        Cliente? BuscarPorEmailSenha(string email, string senha);
 
         // Create
         void Cadastrar(Cliente cliente);

@@ -63,12 +63,12 @@ public partial class EcommerceContext : DbContext
 
             entity.ToTable("ItemPedido");
 
-            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.ItemPedidos)
+            entity.HasOne(d => d.Pedido).WithMany(p => p.ItemPedidos)
                 .HasForeignKey(d => d.IdPedido)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ItemPedid__IdPed__7A672E12");
 
-            entity.HasOne(d => d.IdProdutoNavigation).WithMany(p => p.ItemPedidos)
+            entity.HasOne(d => d.Produto).WithMany(p => p.ItemPedidos)
                 .HasForeignKey(d => d.IdProduto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__ItemPedid__IdPro__7B5B524B");
@@ -88,7 +88,7 @@ public partial class EcommerceContext : DbContext
                 .HasMaxLength(20)
                 .IsUnicode(false);
 
-            entity.HasOne(d => d.IdPedidoNavigation).WithMany(p => p.Pagamentos)
+            entity.HasOne(d => d.Pedido).WithMany(p => p.Pagamentos)
                 .HasForeignKey(d => d.IdPedido)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Pagamento__IdPed__7E37BEF6");

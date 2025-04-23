@@ -159,7 +159,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/3",
+							"raw": "https://localhost:7064/api/cliente/9",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -168,7 +168,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"3"
+								"9"
 							]
 						}
 					},
@@ -215,7 +215,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Gal Zislene\",\r\n  \"email\": \"galatodovapor@gmail.com\",\r\n  \"telefone\": \"11949279818\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Ivete Sancat\",\r\n  \"email\": \"ivetesancat@gmail.com\",\r\n  \"telefone\": \"11949279817\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,7 +223,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/4",
+							"raw": "https://localhost:7064/api/cliente/9",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -232,7 +232,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"4"
+								"9"
 							]
 						}
 					},
@@ -269,6 +269,28 @@
 								"api",
 								"cliente",
 								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/cliente/lialinda@gmail.com/12334",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente",
+								"lialinda@gmail.com",
+								"12334"
 							]
 						}
 					},
@@ -445,7 +467,7 @@
 					"response": []
 				},
 				{
-					"name": "ListarPorId",
+					"name": "BuscarPorId",
 					"event": [
 						{
 							"listen": "test",
@@ -613,12 +635,248 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataPedido\": \"2025-04-22\",\r\n  \"statusPedido\": \"string\",\r\n  \"valorTotal\": 0,\r\n  \"idCliente\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataPedido\": \"2025-04-22\",\r\n  \"statusPedido\": \"string\",\r\n  \"valorTotal\": 0,\r\n  \"idCliente\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idCliente: { type: \"number\" },\r",
+									"      nomeCompleto: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      senha: { type: \"string\" },\r",
+									"      telefone: { type: \"string\" },\r",
+									"      endereco: { type: \"string\" },\r",
+									"      dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"      pedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/pedido/3",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"pedido",
+								"3"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
 			"name": "ItemPedido",
-			"item": []
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/itempedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"itempedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscarPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/itempedido/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"itempedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/itempedido/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"itempedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quantidade\": 0,\r\n  \"idPedido\": 0,\r\n  \"idProduto\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/itempedido/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"itempedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"quantidade\": 0,\r\n  \"idPedido\": 0,\r\n  \"idProduto\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7064/api/itempedido/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"itempedido",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Pagamento",
@@ -679,7 +937,7 @@
 					"response": []
 				},
 				{
-					"name": "ListarPorId",
+					"name": "BuscarPorId",
 					"event": [
 						{
 							"listen": "test",
@@ -738,7 +996,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"formaPagamento\": \"Débito\",\r\n  \"statusPagamento\": \"Pix\",\r\n  \"dataPagamento\": \"2025-04-16T22:35:39.558Z\",\r\n  \"idPedido\": \"3\"\r\n}",
+							"raw": "{\r\n  \"formaPagamento\": \"Pix\",\r\n  \"statusPagamento\": \"Pago\",\r\n  \"dataPagamento\": \"2025-04-22T18:35:39.558Z\",\r\n  \"idPedido\": \"3\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -775,7 +1033,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7064/api/pagamento",
+							"raw": "https://localhost:7064/api/pagamento/11",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -783,7 +1041,8 @@
 							"port": "7064",
 							"path": [
 								"api",
-								"pagamento"
+								"pagamento",
+								"11"
 							]
 						}
 					},
@@ -795,7 +1054,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7064/api/pagamento/5",
+							"raw": "https://localhost:7064/api/pagamento/11",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -804,7 +1063,7 @@
 							"path": [
 								"api",
 								"pagamento",
-								"5"
+								"11"
 							]
 						}
 					},

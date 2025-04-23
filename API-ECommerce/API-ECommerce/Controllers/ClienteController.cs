@@ -55,6 +55,20 @@ namespace API_ECommerce.Controllers
             return Ok(cliente);
         }
 
+        [HttpGet("{email}/{senha}")]
+        public IActionResult Login(string email, string senha)
+        {
+            Cliente cliente = _clienteRepository.BuscarPorEmailSenha(email, senha);
+
+            if (cliente == null)
+            {
+                // 404 - Não Encontrado
+                return NotFound();
+            }
+
+            return Ok(cliente);
+        }
+
         [HttpPut("{id}")]
         public IActionResult Editar(int id, Cliente cliente)
         {
@@ -63,7 +77,7 @@ namespace API_ECommerce.Controllers
                 _clienteRepository.Atualizar(id, cliente);
                 return Ok(cliente);
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
 
                 return NotFound("Cliente não encontrado!");
@@ -79,7 +93,7 @@ namespace API_ECommerce.Controllers
                 return NoContent();
             }
 
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 return NotFound("Cliente não encontrado!");
             }

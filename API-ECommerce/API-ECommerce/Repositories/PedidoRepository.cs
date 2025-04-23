@@ -40,6 +40,7 @@ namespace API_ECommerce.Repositories
 
         public Pedido BuscarPorId(int id)
         {
+            // Pode ser utilizado para buscar qualquer campo
             return _context.Pedidos.FirstOrDefault(c => c.IdPedido == id);
 
         }
@@ -51,13 +52,9 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-        public void Cadastrar(Produto pedido)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Deletar(int id)
         {
+            // Find pode ser utilizado somento por chave primaria (ID)
             Pedido pedidoEncontrado = _context.Pedidos.Find(id);
 
             if (pedidoEncontrado == null)

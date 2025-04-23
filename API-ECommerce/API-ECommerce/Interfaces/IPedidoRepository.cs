@@ -18,6 +18,5 @@ namespace API_ECommerce.Interfaces
 
         // Delete
         void Deletar(int id);
-        void Cadastrar(Produto pedido);
     }
 }

@@ -26,29 +26,38 @@ namespace API_ECommerce.Repositories
         public void Atualizar(int id, Cliente cliente)
         {
             // Encontrar o produto a ser atualizado
-            Cliente ClienteEncontrado = _context.Clientes.Find(id);
+            Cliente clienteEncontrado = _context.Clientes.Find(id);
 
-            if (ClienteEncontrado == null)
+            if (clienteEncontrado == null)
             {
-                throw new Exception();
+                throw new ArgumentNullException("Cliente não encontrado!");
             }
 
-            ClienteEncontrado.NomeCompleto = cliente.NomeCompleto;
-            ClienteEncontrado.Email = cliente.Email;
-            ClienteEncontrado.Senha = cliente.Senha;
-            ClienteEncontrado.Telefone = cliente.Telefone;
-            ClienteEncontrado.Endereco = cliente.Endereco;
-            ClienteEncontrado.DataCadastro = cliente.DataCadastro;
+            clienteEncontrado.NomeCompleto = cliente.NomeCompleto;
+            clienteEncontrado.Email = cliente.Email;
+            clienteEncontrado.Senha = cliente.Senha;
+            clienteEncontrado.Telefone = cliente.Telefone;
+            clienteEncontrado.Endereco = cliente.Endereco;
+            clienteEncontrado.DataCadastro = cliente.DataCadastro;
 
             _context.SaveChanges();
         }
 
-        public Cliente BuscarPorEmailSenha(string email, string senha)
+        /// <summary>
+        /// Vai acessar o Banco de Dados e Encontra o Cliente com E-mail e Senha fornecidos
+        /// </summary>
+        /// <returns>Um cliente ou null</returns>
+
+        public Cliente? BuscarPorEmailSenha(string email, string senha)
         {
-            throw new NotImplementedException();
+            // Encontrar o Cliente que possui o e-mail e senha fornecidos
+            // Quando eu quero 1 só coisa, utilizo o FirstOrDefault
+            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
+
+            return clienteEncontrado;
         }
 
-        public Cliente BuscarPorId(int id)
+        public Cliente? BuscarPorId(int id)
         {
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
@@ -66,7 +75,7 @@ namespace API_ECommerce.Repositories
 
             if (clienteEncontrado == null)
             {
-                throw new Exception();
+                throw new ArgumentNullException("Cliente não encontrado!");
             }
 
             _context.Clientes.Remove(clienteEncontrado);

@@ -1,6 +1,7 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace API_ECommerce.Repositories
 {
@@ -32,7 +33,7 @@ namespace API_ECommerce.Repositories
             PagamentoEncontrado.FormaPagamento = pagamento.FormaPagamento;
             PagamentoEncontrado.StatusPagamento = pagamento.StatusPagamento;
             PagamentoEncontrado.DataPagamento = pagamento.DataPagamento;
-            PagamentoEncontrado.IdPagamento = pagamento.IdPagamento;
+            PagamentoEncontrado.IdPedido = pagamento.IdPedido;
 
             _context.SaveChanges();
         }
@@ -65,7 +66,7 @@ namespace API_ECommerce.Repositories
 
         public List<Pagamento> ListarTodos()
         {
-            return _context.Pagamentos.ToList();
+            return _context.Pagamentos.Include(p => p.Pedido).ToList();
         }
     }
 }

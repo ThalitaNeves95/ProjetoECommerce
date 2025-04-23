@@ -15,5 +15,6 @@ public partial class Pagamento
 
     public int IdPedido { get; set; }
 
-    public virtual Pedido? IdPedidoNavigation { get; set; } = null!;
+    // <nome da tabela> Id CHAVE - Quando for criar a tabela - public virtual Pedido? Pedido { get; set; } = null!;
+    public virtual Pedido? Pedido { get; set; } = null!;
 }
