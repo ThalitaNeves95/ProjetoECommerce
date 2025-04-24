@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 
@@ -26,7 +27,7 @@ namespace API_ECommerce.Repositories
         public void Atualizar(int id, Cliente cliente)
         {
             // Encontrar o produto a ser atualizado
-            Cliente clienteEncontrado = _context.Clientes.Find(id);
+            var clienteEncontrado = _context.Clientes.Find(id);
 
             if (clienteEncontrado == null)
             {
@@ -43,6 +44,15 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
+        public List<Cliente> BuscarClientePorNome(string nome)
+        {
+            //Where - traz todos que atendem uma condicao
+            //var listaClientes = _context.Clientes.Where(c => c.NomeCompleto == nome).ToList();
+            var listaClientes = _context.Clientes.Where(c => c.NomeCompleto.Contains(nome)).ToList();
+
+            return listaClientes;
+        }
+
         /// <summary>
         /// Vai acessar o Banco de Dados e Encontra o Cliente com E-mail e Senha fornecidos
         /// </summary>
@@ -52,7 +62,7 @@ namespace API_ECommerce.Repositories
         {
             // Encontrar o Cliente que possui o e-mail e senha fornecidos
             // Quando eu quero 1 só coisa, utilizo o FirstOrDefault
-            Cliente clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
+            var clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
 
             return clienteEncontrado;
         }
@@ -62,16 +72,26 @@ namespace API_ECommerce.Repositories
             return _context.Clientes.FirstOrDefault(c => c.IdCliente == id);
         }
 
-        public void Cadastrar(Cliente cliente)
+        public void Cadastrar(CadastrarClienteDto cliente)
         {
-            _context.Clientes.Add(cliente);
+            Cliente clienteCadastro = new Cliente
+            {
+                NomeCompleto = cliente.NomeCompleto,
+                Endereco = cliente.Endereco,
+                Telefone = cliente.Telefone,
+                Email = cliente.Email,
+                Senha = cliente.Senha,
+                DataCadastro = cliente.DataCadastro,
+
+            };
+            _context.Clientes.Add(clienteCadastro);
             // 2 - Salvo a Alteração
             _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            Cliente clienteEncontrado = _context.Clientes.Find(id);
+            var clienteEncontrado = _context.Clientes.Find(id);
 
             if (clienteEncontrado == null)
             {

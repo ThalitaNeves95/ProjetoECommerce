@@ -175,6 +175,62 @@
 					"response": []
 				},
 				{
+					"name": "BuscarPorNome",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Schema is valid\", function () {\r",
+									"  var schema = {\r",
+									"    type: \"object\",\r",
+									"    properties: {\r",
+									"      idCliente: { type: \"number\" },\r",
+									"      nomeCompleto: { type: \"string\" },\r",
+									"      email: { type: \"string\", format: \"email\" },\r",
+									"      senha: { type: \"string\" },\r",
+									"      telefone: { type: \"string\" },\r",
+									"      endereco: { type: \"string\" },\r",
+									"      dataCadastro: { type: \"string\", format: \"date-time\" },\r",
+									"      pedidos: { type: \"array\" }\r",
+									"    },\r",
+									"    required: [\"idCliente\", \"nomeCompleto\", \"email\", \"senha\", \"telefone\", \"endereco\", \"dataCadastro\", \"pedidos\"],\r",
+									"  };\r",
+									"\r",
+									"  var response = pm.response.json();\r",
+									"  pm.expect(tv4.validate(response, schema)).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7064/api/cliente/buscar/lia",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7064",
+							"path": [
+								"api",
+								"cliente",
+								"buscar",
+								"lia"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Atualizar",
 					"event": [
 						{

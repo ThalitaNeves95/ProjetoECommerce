@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using API_ECommerce.Repositories;
@@ -31,7 +32,7 @@ namespace API_ECommerce.Controllers
         // Navegador so faz o GET
         // Post - Cadastrar
         [HttpPost]
-        public IActionResult CadastrarCliente(Cliente cliente)
+        public IActionResult CadastrarCliente(CadastrarClienteDto cliente)
         {
             // 1 - Coloco o cliente no Banco de Dados
             _clienteRepository.Cadastrar(cliente);
@@ -44,7 +45,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("{id}")]
         public IActionResult ListarPorId(int id)
         {
-            Cliente cliente = _clienteRepository.BuscarPorId(id);
+            var cliente = _clienteRepository.BuscarPorId(id);
 
             if (cliente == null)
             {
@@ -58,7 +59,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("{email}/{senha}")]
         public IActionResult Login(string email, string senha)
         {
-            Cliente cliente = _clienteRepository.BuscarPorEmailSenha(email, senha);
+            var cliente = _clienteRepository.BuscarPorEmailSenha(email, senha);
 
             if (cliente == null)
             {
@@ -66,6 +67,22 @@ namespace API_ECommerce.Controllers
                 return NotFound();
             }
 
+            return Ok(cliente);
+        }
+
+        [HttpGet("buscar/{nome}")]
+        public IActionResult BuscarPorNome(string nome)
+        {
+            // Consulta o banco UMA vez e armazena o resultado
+            var cliente = _clienteRepository.BuscarClientePorNome(nome);
+
+            // Trata o caso de cliente não encontrado
+            if (cliente == null)
+            {
+                return NotFound(); // HTTP 404
+            }
+
+            // Retorna o cliente encontrado (HTTP 200)
             return Ok(cliente);
         }
 

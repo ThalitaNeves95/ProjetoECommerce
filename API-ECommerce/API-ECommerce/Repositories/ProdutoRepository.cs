@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -23,7 +24,7 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
 
-        public Produto BuscarPorId(int id)
+        public Produto? BuscarPorId(int id)
         {
             // ToList() - Pegar vários
             // FirstOrDefault - Traz o primeiro que encontrar, ou null
@@ -38,7 +39,7 @@ namespace API_ECommerce.Repositories
         public void Atualizar(int id, Produto prod)
         {
             // Encontrar o produto a ser atualizado
-            Produto ProdutoEncontrado = _context.Produtos.Find(id);
+            var ProdutoEncontrado = _context.Produtos.Find(id);
 
             if (ProdutoEncontrado == null)
             {
@@ -55,9 +56,18 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-        public void Cadastrar(Produto produto)
+        public void Cadastrar(CadastrarProdutoDto produto)
         {
-            _context.Produtos.Add(produto);
+            Produto produtoCadastro = new Produto
+            {
+                NomeProduto = produto.NomeProduto,
+                Descricao = produto.Descricao,
+                Preco = produto.Preco,
+                Estoque = produto.Estoque,
+                Categoria = produto.Categoria,
+                Imagem = produto.Imagem,
+            };
+            _context.Produtos.Add(produtoCadastro);
             // 2 - Salvo a Alteração
             _context.SaveChanges();
         }
@@ -65,7 +75,7 @@ namespace API_ECommerce.Repositories
         public void Deletar(int id)
         {
             // 1 - encontrar o que eu quero excluir
-            Produto produtoEncontrado = _context.Produtos.Find(id); // Find - Procura apenas pela chave primaria
+            var produtoEncontrado = _context.Produtos.Find(id); // Find - Procura apenas pela chave primaria
 
             // Tratamento de erro
             if (produtoEncontrado == null)

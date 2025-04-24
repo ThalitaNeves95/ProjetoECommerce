@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "cliente",
-        "Type": "API_ECommerce.Models.Cliente",
+        "Type": "API_ECommerce.DTO.CadastrarClienteDto",
         "IsRequired": true
       }
     ],
@@ -94,6 +94,22 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ClienteController",
+    "Method": "BuscarPorNome",
+    "RelativePath": "api/Cliente/buscar/{nome}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nome",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],
@@ -356,7 +372,7 @@
     "Parameters": [
       {
         "Name": "prod",
-        "Type": "API_ECommerce.Models.Produto",
+        "Type": "API_ECommerce.DTO.CadastrarProdutoDto",
         "IsRequired": true
       }
     ],
