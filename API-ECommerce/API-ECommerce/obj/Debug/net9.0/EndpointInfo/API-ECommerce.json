@@ -326,17 +326,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             }
           }
@@ -451,17 +451,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             }
           }
@@ -688,6 +688,10 @@
       "CadastrarClienteDto": {
         "type": "object",
         "properties": {
+          "idCliente": {
+            "type": "integer",
+            "format": "int32"
+          },
           "nomeCompleto": {
             "type": "string",
             "nullable": true
@@ -711,6 +715,60 @@
           "dataCadastro": {
             "type": "string",
             "format": "date",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CadastrarPagamentoDto": {
+        "type": "object",
+        "properties": {
+          "formaPagamento": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusPagamento": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataPagamento": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "idPedido": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CadastrarPedidoDto": {
+        "type": "object",
+        "properties": {
+          "dataPedido": {
+            "type": "string",
+            "format": "date"
+          },
+          "statusPedido": {
+            "type": "string",
+            "nullable": true
+          },
+          "valorTotal": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idCliente": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "produtos": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
             "nullable": true
           }
         },

@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Dolores\",\r\n  \"email\": \"dodoshaka@gmail.com\",\r\n  \"senha\": \"12334\",\r\n  \"telefone\": \"11949219877\",\r\n  \"endereco\": \"Rua Major Sertório, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-17\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Bebethânia\",\r\n  \"email\": \"bebethania@gmail.com\",\r\n  \"senha\": \"12334\",\r\n  \"telefone\": \"1199919877\",\r\n  \"endereco\": \"Rua Major Sertório, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-24\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -271,7 +271,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Ivete Sancat\",\r\n  \"email\": \"ivetesancat@gmail.com\",\r\n  \"telefone\": \"11949279817\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Liz\",\r\n  \"email\": \"lizliz@gmail.com\",\r\n  \"telefone\": \"11995997777\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +279,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/9",
+							"raw": "https://localhost:7064/api/cliente/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -288,7 +288,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"9"
+								"3"
 							]
 						}
 					},
@@ -315,7 +315,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/13",
+							"raw": "https://localhost:7064/api/cliente/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -324,7 +324,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"13"
+								"3"
 							]
 						}
 					},

@@ -1,13 +1,14 @@
 ﻿using API_ECommerce.Context;
 using API_ECommerce.DTO;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Interfaces
 {
     public interface IClienteRepository
     {
         // Read - Ler
-        List<Cliente> ListarTodos();
+        List<ListarClienteViewModel> ListarTodos();
 
         Cliente? BuscarPorId(int id);
 

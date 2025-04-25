@@ -214,7 +214,7 @@
     "Parameters": [
       {
         "Name": "pagamento",
-        "Type": "API_ECommerce.Models.Pagamento",
+        "Type": "API_ECommerce.DTO.CadastrarPagamentoDto",
         "IsRequired": true
       }
     ],
@@ -293,7 +293,7 @@
     "Parameters": [
       {
         "Name": "pedido",
-        "Type": "API_ECommerce.Models.Pedido",
+        "Type": "API_ECommerce.DTO.CadastrarPedidoDto",
         "IsRequired": true
       }
     ],

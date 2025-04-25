@@ -1,15 +1,13 @@
-﻿namespace API_ECommerce.DTO
+﻿namespace API_ECommerce.ViewModels
 {
-    public class CadastrarClienteDto
+    public class ListarClienteViewModel
     {
-        // É utilizado em casos de cadastrar e editar - Front para o Back
+        // Utilizado para a busca de dados - Get - Back para o Front
         public int IdCliente { get; set; }
 
         public string NomeCompleto { get; set; } = null!;
 
         public string Email { get; set; } = null!;
-
-        public string Senha { get; set; } = null!;
 
         public string Telefone { get; set; } = null!;
 

@@ -2,6 +2,7 @@
 using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Repositories
 {
@@ -74,17 +75,16 @@ namespace API_ECommerce.Repositories
 
         public void Cadastrar(CadastrarClienteDto cliente)
         {
-            Cliente clienteCadastro = new Cliente
+            Cliente clienteCadastrar = new Cliente
             {
                 NomeCompleto = cliente.NomeCompleto,
                 Endereco = cliente.Endereco,
                 Telefone = cliente.Telefone,
                 Email = cliente.Email,
                 Senha = cliente.Senha,
-                DataCadastro = cliente.DataCadastro,
-
+                DataCadastro = cliente.DataCadastro
             };
-            _context.Clientes.Add(clienteCadastro);
+            _context.Clientes.Add(clienteCadastrar);
             // 2 - Salvo a Alteração
             _context.SaveChanges();
         }
@@ -103,9 +103,17 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-        public List<Cliente> ListarTodos()
+        public List<ListarClienteViewModel> ListarTodos()
         {
-            return _context.Clientes.ToList();
+            // Select permite que eu selecione quais campos eu quero pegar
+            return _context.Clientes.Select(c => new ListarClienteViewModel
+            {
+                IdCliente = c.IdCliente,
+                NomeCompleto = c.NomeCompleto, 
+                Endereco = c.Endereco, 
+                Telefone = c.Telefone,
+                Email = c.Email
+            }).ToList();
         }
     }
 }

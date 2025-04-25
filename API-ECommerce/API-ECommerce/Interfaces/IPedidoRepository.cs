@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Models;
 
 namespace API_ECommerce.Interfaces
@@ -8,10 +9,10 @@ namespace API_ECommerce.Interfaces
         // Read - Ler
         List<Pedido> ListarTodos();
 
-        Pedido BuscarPorId(int id);
+        Pedido? BuscarPorId(int id);
 
         // Create
-        void Cadastrar(Pedido pedido);
+        void Cadastrar(CadastrarPedidoDto pedido);
 
         // Update
         void Atualizar(int id, Pedido pedido);

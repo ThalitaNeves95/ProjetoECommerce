@@ -65,7 +65,7 @@ namespace API_ECommerce.Repositories
                 Preco = produto.Preco,
                 Estoque = produto.Estoque,
                 Categoria = produto.Categoria,
-                Imagem = produto.Imagem,
+                Imagem = produto.Imagem
             };
             _context.Produtos.Add(produtoCadastro);
             // 2 - Salvo a Alteração

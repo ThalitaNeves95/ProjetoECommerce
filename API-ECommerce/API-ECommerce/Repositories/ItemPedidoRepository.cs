@@ -22,7 +22,7 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, ItemPedido itemPedido)
         {
-            ItemPedido itemPedidoEncontrado = _context.ItemPedidos.Find(id);
+            var itemPedidoEncontrado = _context.ItemPedidos.Find(id);
 
             if (itemPedidoEncontrado == null)
             {
@@ -50,7 +50,7 @@ namespace API_ECommerce.Repositories
 
         public void Deletar(int id)
         {
-            ItemPedido itemPedidoEncontrado = _context.ItemPedidos.Find(id);
+            var itemPedidoEncontrado = _context.ItemPedidos.Find(id);
 
             if (itemPedidoEncontrado == null)
             {

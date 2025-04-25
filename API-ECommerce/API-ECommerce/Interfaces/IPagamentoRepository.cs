@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Models;
 
 namespace API_ECommerce.Interfaces
@@ -8,10 +9,10 @@ namespace API_ECommerce.Interfaces
         // Read - Ler
         List<Pagamento> ListarTodos();
 
-        Pagamento BuscarPorId(int id);
+        Pagamento? BuscarPorId(int id);
 
         // Create
-        void Cadastrar(Pagamento pagamento);
+        void Cadastrar(CadastrarPagamentoDto pagamento);
 
         // Update
         void Atualizar(int id, Pagamento pagamento);

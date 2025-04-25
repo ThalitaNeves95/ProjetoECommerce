@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,7 @@ namespace API_ECommerce.Repositories
 
         public void Atualizar(int id, Pagamento pagamento)
         {
-            Pagamento PagamentoEncontrado = _context.Pagamentos.Find(id);
+            var PagamentoEncontrado = _context.Pagamentos.Find(id);
 
             if (PagamentoEncontrado == null)
             {
@@ -38,21 +39,28 @@ namespace API_ECommerce.Repositories
             _context.SaveChanges();
         }
 
-        public Pagamento BuscarPorId(int id)
+        public Pagamento? BuscarPorId(int id)
         {
             return _context.Pagamentos.FirstOrDefault(c => c.IdPagamento == id);
         }
 
-        public void Cadastrar(Pagamento pagamento)
+        public void Cadastrar(CadastrarPagamentoDto pagamento)
         {
-            _context.Pagamentos.Add(pagamento);
+            Pagamento pagamentoCadastro = new Pagamento
+            {
+                FormaPagamento = pagamento.FormaPagamento,
+                StatusPagamento = pagamento.StatusPagamento,
+                DataPagamento = pagamento.DataPagamento,
+                IdPedido = pagamento.IdPedido
+            };
+            _context.Pagamentos.Add(pagamentoCadastro);
 
             _context.SaveChanges();
         }
 
         public void Deletar(int id)
         {
-            Pagamento pagamentoEncontrado = _context.Pagamentos.Find(id);
+            var pagamentoEncontrado = _context.Pagamentos.Find(id);
 
             if (pagamentoEncontrado == null)
             {
