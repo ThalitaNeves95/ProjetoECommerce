@@ -44,7 +44,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("{id}")]
         public IActionResult ListarPorId(int id)
         {
-            Pagamento pagamento = _pagamentoRepository.BuscarPorId(id);
+            var pagamento = _pagamentoRepository.BuscarPorId(id);
 
             if (pagamento == null)
             {
@@ -56,7 +56,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Pagamento pagamento)
+        public IActionResult Editar(int id, CadastrarPagamentoDto pagamento)
         {
             try
             {

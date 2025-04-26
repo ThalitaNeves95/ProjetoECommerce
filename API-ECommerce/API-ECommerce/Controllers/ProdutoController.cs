@@ -61,7 +61,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Produto prod)
+        public IActionResult Editar(int id, CadastrarProdutoDto prod)
         {
             try
             {

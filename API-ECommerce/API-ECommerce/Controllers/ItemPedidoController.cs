@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using API_ECommerce.Repositories;
@@ -26,7 +27,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarItemPedido(ItemPedido itemPedido)
+        public IActionResult CadastrarItemPedido(CadastrarItemPedidoDto itemPedido)
         {
             // 1 - Coloco o produto no Banco de Dados
             _itemPedidoRepository.Cadastrar(itemPedido);
@@ -39,7 +40,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("{id}")]
         public IActionResult ListarPorId(int id)
         {
-            ItemPedido itemPedidoEncontrado = _itemPedidoRepository.BuscarPorId(id);
+            var itemPedidoEncontrado = _itemPedidoRepository.BuscarPorId(id);
 
             if (itemPedidoEncontrado == null)
             {
@@ -51,7 +52,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, ItemPedido itemPedido)
+        public IActionResult Editar(int id, CadastrarItemPedidoDto itemPedido)
         {
             try
             {

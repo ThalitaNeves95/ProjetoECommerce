@@ -14,7 +14,5 @@
         public string Telefone { get; set; } = null!;
 
         public string? Endereco { get; set; }
-
-        public DateOnly? DataCadastro { get; set; }
     }
 }

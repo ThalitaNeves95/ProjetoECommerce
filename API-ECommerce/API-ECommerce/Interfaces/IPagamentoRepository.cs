@@ -15,7 +15,7 @@ namespace API_ECommerce.Interfaces
         void Cadastrar(CadastrarPagamentoDto pagamento);
 
         // Update
-        void Atualizar(int id, Pagamento pagamento);
+        void Atualizar(int id, CadastrarPagamentoDto pagamento);
 
         // Delete
         void Deletar(int id);

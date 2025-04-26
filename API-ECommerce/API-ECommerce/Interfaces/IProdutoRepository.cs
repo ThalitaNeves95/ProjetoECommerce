@@ -1,5 +1,6 @@
 ﻿using API_ECommerce.DTO;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Interfaces
 {
@@ -18,7 +19,7 @@ namespace API_ECommerce.Interfaces
 
         // U - Update (Atualização)
         // Recebe um identificador para achar o Produto, e recebe o Produto Novo para subistituir o Antigo
-        void Atualizar(int id, Produto prod);
+        void Atualizar(int id, CadastrarProdutoDto prod);
 
         // D - Delete (Deleção)
         // Recebe o identificador de quem quero excluir

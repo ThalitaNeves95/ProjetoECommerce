@@ -1,5 +1,7 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 
 namespace API_ECommerce.Interfaces
 {
@@ -11,10 +13,10 @@ namespace API_ECommerce.Interfaces
         ItemPedido? BuscarPorId(int id);
 
         // Create
-        void Cadastrar(ItemPedido itemPedido);
+        void Cadastrar(CadastrarItemPedidoDto itemPedido);
 
         // Update
-        void Atualizar(int id, ItemPedido itemPedido);
+        void Atualizar(int id, CadastrarItemPedidoDto itemPedido);
 
         // Delete
         void Deletar(int id);

@@ -25,7 +25,7 @@ namespace API_ECommerce.Repositories
         {
             _context = context;
         }
-        public void Atualizar(int id, Cliente cliente)
+        public void Atualizar(int id, CadastrarClienteDto cliente)
         {
             // Encontrar o produto a ser atualizado
             var clienteEncontrado = _context.Clientes.Find(id);
@@ -40,7 +40,6 @@ namespace API_ECommerce.Repositories
             clienteEncontrado.Senha = cliente.Senha;
             clienteEncontrado.Telefone = cliente.Telefone;
             clienteEncontrado.Endereco = cliente.Endereco;
-            clienteEncontrado.DataCadastro = cliente.DataCadastro;
 
             _context.SaveChanges();
         }
@@ -82,7 +81,7 @@ namespace API_ECommerce.Repositories
                 Telefone = cliente.Telefone,
                 Email = cliente.Email,
                 Senha = cliente.Senha,
-                DataCadastro = cliente.DataCadastro
+                DataCadastro = DateOnly.FromDateTime(DateTime.Now)
             };
             _context.Clientes.Add(clienteCadastrar);
             // 2 - Salvo a Alteração

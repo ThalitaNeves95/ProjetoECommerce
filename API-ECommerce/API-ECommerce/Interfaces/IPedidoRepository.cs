@@ -15,7 +15,7 @@ namespace API_ECommerce.Interfaces
         void Cadastrar(CadastrarPedidoDto pedido);
 
         // Update
-        void Atualizar(int id, Pedido pedido);
+        void Atualizar(int id, CadastrarPedidoDto pedido);
 
         // Delete
         void Deletar(int id);

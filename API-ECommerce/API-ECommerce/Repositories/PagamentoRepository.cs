@@ -22,7 +22,7 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
 
-        public void Atualizar(int id, Pagamento pagamento)
+        public void Atualizar(int id, CadastrarPagamentoDto pagamento)
         {
             var PagamentoEncontrado = _context.Pagamentos.Find(id);
 
@@ -33,7 +33,6 @@ namespace API_ECommerce.Repositories
 
             PagamentoEncontrado.FormaPagamento = pagamento.FormaPagamento;
             PagamentoEncontrado.StatusPagamento = pagamento.StatusPagamento;
-            PagamentoEncontrado.DataPagamento = pagamento.DataPagamento;
             PagamentoEncontrado.IdPedido = pagamento.IdPedido;
 
             _context.SaveChanges();
@@ -50,7 +49,7 @@ namespace API_ECommerce.Repositories
             {
                 FormaPagamento = pagamento.FormaPagamento,
                 StatusPagamento = pagamento.StatusPagamento,
-                DataPagamento = pagamento.DataPagamento,
+                DataPagamento = DateTime.Now,
                 IdPedido = pagamento.IdPedido
             };
             _context.Pagamentos.Add(pagamentoCadastro);

@@ -6,8 +6,6 @@
 
         public string StatusPagamento { get; set; } = null!;
 
-        public DateTime DataPagamento { get; set; }
-
         public int IdPedido { get; set; }
     }
 }

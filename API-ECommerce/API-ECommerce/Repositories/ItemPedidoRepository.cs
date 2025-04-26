@@ -1,4 +1,5 @@
 ﻿using API_ECommerce.Context;
+using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 
@@ -20,7 +21,7 @@ namespace API_ECommerce.Repositories
             _context = context;
         }
 
-        public void Atualizar(int id, ItemPedido itemPedido)
+        public void Atualizar(int id, CadastrarItemPedidoDto itemPedido)
         {
             var itemPedidoEncontrado = _context.ItemPedidos.Find(id);
 
@@ -41,9 +42,15 @@ namespace API_ECommerce.Repositories
             return _context.ItemPedidos.FirstOrDefault(c => c.IdItemPedido == id);
         }
 
-        public void Cadastrar(ItemPedido itemPedido)
+        public void Cadastrar(CadastrarItemPedidoDto itemPedido)
         {
-            _context.ItemPedidos.Add(itemPedido);
+            ItemPedido itemPedidoCadastrar = new ItemPedido
+            {
+                Quantidade = itemPedido.Quantidade,
+                IdPedido = itemPedido.IdPedido,
+                IdProduto = itemPedido.IdProduto
+            };
+            _context.ItemPedidos.Add(itemPedidoCadastrar);
 
             _context.SaveChanges();
         }

@@ -87,17 +87,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Cliente"
+                "$ref": "#/components/schemas/CadastrarClienteDto"
               }
             }
           }
@@ -201,17 +201,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             }
           }
@@ -264,17 +264,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/ItemPedido"
+                "$ref": "#/components/schemas/CadastrarItemPedidoDto"
               }
             }
           }
@@ -389,17 +389,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Pagamento"
+                "$ref": "#/components/schemas/CadastrarPagamentoDto"
               }
             }
           }
@@ -514,17 +514,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Pedido"
+                "$ref": "#/components/schemas/CadastrarPedidoDto"
               }
             }
           }
@@ -639,17 +639,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Produto"
+                "$ref": "#/components/schemas/CadastrarProdutoDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Produto"
+                "$ref": "#/components/schemas/CadastrarProdutoDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Produto"
+                "$ref": "#/components/schemas/CadastrarProdutoDto"
               }
             }
           }
@@ -711,11 +711,28 @@
           "endereco": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CadastrarItemPedidoDto": {
+        "type": "object",
+        "properties": {
+          "idItemPedido": {
+            "type": "integer",
+            "format": "int32"
           },
-          "dataCadastro": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
+          "quantidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idPedido": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idProduto": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -730,10 +747,6 @@
           "statusPagamento": {
             "type": "string",
             "nullable": true
-          },
-          "dataPagamento": {
-            "type": "string",
-            "format": "date-time"
           },
           "idPedido": {
             "type": "integer",
@@ -799,184 +812,6 @@
           },
           "imagem": {
             "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Cliente": {
-        "type": "object",
-        "properties": {
-          "idCliente": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nomeCompleto": {
-            "type": "string",
-            "nullable": true
-          },
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "senha": {
-            "type": "string",
-            "nullable": true
-          },
-          "telefone": {
-            "type": "string",
-            "nullable": true
-          },
-          "endereco": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataCadastro": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "pedidos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Pedido"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ItemPedido": {
-        "type": "object",
-        "properties": {
-          "idItemPedido": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "quantidade": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "idPedido": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "idProduto": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pedido": {
-            "$ref": "#/components/schemas/Pedido"
-          },
-          "produto": {
-            "$ref": "#/components/schemas/Produto"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Pagamento": {
-        "type": "object",
-        "properties": {
-          "idPagamento": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "formaPagamento": {
-            "type": "string",
-            "nullable": true
-          },
-          "statusPagamento": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataPagamento": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "idPedido": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "pedido": {
-            "$ref": "#/components/schemas/Pedido"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Pedido": {
-        "type": "object",
-        "properties": {
-          "idPedido": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "dataPedido": {
-            "type": "string",
-            "format": "date"
-          },
-          "statusPedido": {
-            "type": "string",
-            "nullable": true
-          },
-          "valorTotal": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "idCliente": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "idClienteNavigation": {
-            "$ref": "#/components/schemas/Cliente"
-          },
-          "itemPedidos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ItemPedido"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Produto": {
-        "type": "object",
-        "properties": {
-          "idProduto": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nomeProduto": {
-            "type": "string",
-            "nullable": true
-          },
-          "descricao": {
-            "type": "string",
-            "nullable": true
-          },
-          "preco": {
-            "type": "number",
-            "format": "double"
-          },
-          "estoque": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "categoria": {
-            "type": "string",
-            "nullable": true
-          },
-          "imagem": {
-            "type": "string",
-            "nullable": true
-          },
-          "itemPedidos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ItemPedido"
-            },
             "nullable": true
           }
         },

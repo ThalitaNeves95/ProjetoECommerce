@@ -42,7 +42,7 @@ namespace API_ECommerce.Controllers
         [HttpGet("{id}")]
         public IActionResult ListarPorId(int id)
         {
-            Pedido pedido = _pedidoRepository.BuscarPorId(id);
+            var pedido = _pedidoRepository.BuscarPorId(id);
 
             if (pedido == null)
             {
@@ -54,7 +54,7 @@ namespace API_ECommerce.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Pedido pedido)
+        public IActionResult Editar(int id, CadastrarPedidoDto pedido)
         {
             try
             {

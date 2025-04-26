@@ -2,6 +2,7 @@
 using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
+using API_ECommerce.ViewModels;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -36,7 +37,7 @@ namespace API_ECommerce.Repositories
             return _context.Produtos.FirstOrDefault(p => p.IdProduto == id);
         }
 
-        public void Atualizar(int id, Produto prod)
+        public void Atualizar(int id, CadastrarProdutoDto prod)
         {
             // Encontrar o produto a ser atualizado
             var ProdutoEncontrado = _context.Produtos.Find(id);
@@ -92,7 +93,7 @@ namespace API_ECommerce.Repositories
 
         public List<Produto> ListarTodos()
         {
-            return _context.Produtos.ToList();
+            return _context.Produtos.ToList(); ;
         }
     }
 }

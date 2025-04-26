@@ -77,7 +77,7 @@
       },
       {
         "Name": "cliente",
-        "Type": "API_ECommerce.Models.Cliente",
+        "Type": "API_ECommerce.DTO.CadastrarClienteDto",
         "IsRequired": true
       }
     ],
@@ -135,7 +135,7 @@
     "Parameters": [
       {
         "Name": "itemPedido",
-        "Type": "API_ECommerce.Models.ItemPedido",
+        "Type": "API_ECommerce.DTO.CadastrarItemPedidoDto",
         "IsRequired": true
       }
     ],
@@ -172,7 +172,7 @@
       },
       {
         "Name": "itemPedido",
-        "Type": "API_ECommerce.Models.ItemPedido",
+        "Type": "API_ECommerce.DTO.CadastrarItemPedidoDto",
         "IsRequired": true
       }
     ],
@@ -251,7 +251,7 @@
       },
       {
         "Name": "pagamento",
-        "Type": "API_ECommerce.Models.Pagamento",
+        "Type": "API_ECommerce.DTO.CadastrarPagamentoDto",
         "IsRequired": true
       }
     ],
@@ -330,7 +330,7 @@
       },
       {
         "Name": "pedido",
-        "Type": "API_ECommerce.Models.Pedido",
+        "Type": "API_ECommerce.DTO.CadastrarPedidoDto",
         "IsRequired": true
       }
     ],
@@ -409,7 +409,7 @@
       },
       {
         "Name": "prod",
-        "Type": "API_ECommerce.Models.Produto",
+        "Type": "API_ECommerce.DTO.CadastrarProdutoDto",
         "IsRequired": true
       }
     ],
