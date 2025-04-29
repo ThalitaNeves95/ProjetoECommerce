@@ -271,7 +271,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Liz\",\r\n  \"email\": \"lizliz@gmail.com\",\r\n  \"telefone\": \"11995997777\",\r\n  \"senha\": \"12358\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Banana\",\r\n  \"email\": \"bananaecanela@gmail.com\",\r\n  \"telefone\": \"21975222123\",\r\n  \"senha\": \"123456789\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -93,7 +93,7 @@ namespace API_ECommerce.Repositories
 
         public List<Produto> ListarTodos()
         {
-            return _context.Produtos.ToList(); ;
+            return _context.Produtos.ToList();
         }
     }
 }
