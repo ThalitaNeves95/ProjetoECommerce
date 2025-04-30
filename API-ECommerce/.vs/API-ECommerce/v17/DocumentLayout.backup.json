@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\controllers\\clientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\repositories\\clienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|c:\\users\\fic\\desktop\\projetoecommerce\\api-ecommerce\\api-ecommerce\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BFE5539-AACB-4D19-BF1B-4DE9DB83802F}|API-ECommerce\\API-ECommerce.csproj|solutionrelative:api-ecommerce\\dto\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "LoginDto.cs",
               "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\DTO\\LoginDto.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\DTO\\LoginDto.cs",
@@ -47,27 +47,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Program.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Program.cs",
               "ToolTip": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Program.cs",
               "RelativeToolTip": "API-ECommerce\\Program.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAADIAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwBYAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T22:45:32.65Z"
+              "WhenOpened": "2025-04-29T22:45:32.65Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "TokenService.cs",
               "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Services\\TokenService.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Services\\TokenService.cs",
               "ToolTip": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Services\\TokenService.cs",
               "RelativeToolTip": "API-ECommerce\\Services\\TokenService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAABMAAAB4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-29T00:39:10.495Z"
+              "WhenOpened": "2025-04-29T00:39:10.495Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -79,17 +81,18 @@
               "RelativeToolTip": "API-ECommerce\\Repositories\\ClienteRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-28T23:25:07.455Z"
+              "WhenOpened": "2025-04-28T23:25:07.455Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ClienteController.cs",
               "DocumentMoniker": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
               "RelativeDocumentMoniker": "API-ECommerce\\Controllers\\ClienteController.cs",
               "ToolTip": "C:\\Users\\fic\\Desktop\\ProjetoECommerce\\API-ECommerce\\API-ECommerce\\Controllers\\ClienteController.cs",
               "RelativeToolTip": "API-ECommerce\\Controllers\\ClienteController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAuwE0AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-28T23:06:16.658Z",
               "EditorCaption": ""
