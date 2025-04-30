@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Bebethânia\",\r\n  \"email\": \"bebethania@gmail.com\",\r\n  \"senha\": \"12334\",\r\n  \"telefone\": \"1199919877\",\r\n  \"endereco\": \"Rua Major Sertório, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-24\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Maria Bethânia\",\r\n  \"email\": \"mariabebe@gmail.com\",\r\n  \"senha\": \"teste123\",\r\n  \"telefone\": \"1199919800\",\r\n  \"endereco\": \"Rua Major Sertório, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-29\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,6 +102,16 @@
 						}
 					],
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -159,7 +169,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/9",
+							"raw": "https://localhost:7064/api/cliente/16",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -168,7 +178,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"9"
+								"16"
 							]
 						}
 					},
@@ -214,7 +224,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/buscar/lia",
+							"raw": "https://localhost:7064/api/cliente/buscar/elisabeti",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -224,7 +234,7 @@
 								"api",
 								"cliente",
 								"buscar",
-								"lia"
+								"elisabeti"
 							]
 						}
 					},
@@ -271,7 +281,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nomeCompleto\": \"Banana\",\r\n  \"email\": \"bananaecanela@gmail.com\",\r\n  \"telefone\": \"21975222123\",\r\n  \"senha\": \"123456789\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
+							"raw": "{\r\n  \"nomeCompleto\": \"Elisabeti\",\r\n  \"email\": \"bananaecanela@gmail.com\",\r\n  \"telefone\": \"21975222123\",\r\n  \"senha\": \"123456789\",\r\n  \"endereco\": \"Rua Do Amor, 222 - São Paulo/SP\",\r\n  \"dataCadastro\": \"2025-04-22\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -279,7 +289,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/3",
+							"raw": "https://localhost:7064/api/cliente/16",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -288,7 +298,7 @@
 							"path": [
 								"api",
 								"cliente",
-								"3"
+								"16"
 							]
 						}
 					},
@@ -332,11 +342,54 @@
 				},
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.environment.set(\"token\", response.token);\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body is a valid JWT token\", function () {\r",
+									"    var jwtToken = pm.response.text();\r",
+									"    pm.expect(jwtToken).to.be.a('string');\r",
+									"    pm.expect(jwtToken).to.match(/^[^.]+\\.[^.]+\\.[^.]+$/);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"mariabebe@gmail.com\",\r\n    \"senha\": \"teste123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "https://localhost:7064/api/cliente/lialinda@gmail.com/12334",
+							"raw": "https://localhost:7064/api/cliente/login",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -345,10 +398,10 @@
 							"path": [
 								"api",
 								"cliente",
-								"lialinda@gmail.com",
-								"12334"
+								"login"
 							]
-						}
+						},
+						"description": "### Client Login\n\nThis endpoint allows the client to log in and receive a token for authentication.\n\n#### Request Body\n\n- email (text, required): The email of the client.\n    \n- senha (text, required): The password of the client.\n    \n\n#### Response\n\n- Status: 401\n    \n- Content-Type: text/plain\n    \n- Body: E-mail ou senha inválidos!\n    \n\nTo store the token in Postman, create a variable (e.g., `token`) in your environment or collection, and reference it as `{{token}}` in requests. Update its value as needed; use secret type for sensitive data."
 					},
 					"response": []
 				}

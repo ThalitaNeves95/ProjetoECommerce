@@ -1,8 +1,10 @@
-﻿using API_ECommerce.Context;
+﻿using API_Ecommerce.Services;
+using API_ECommerce.Context;
 using API_ECommerce.DTO;
 using API_ECommerce.Interfaces;
 using API_ECommerce.Models;
 using API_ECommerce.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,7 +24,9 @@ namespace API_ECommerce.Controllers
 
         // GET
         // Criar metodo de listar
-        [HttpGet] // Verbo que o endpoint vai ter - Get, Post, Put ou Delete
+        // Verbo que o endpoint vai ter - Get, Post, Put ou Delete
+        [HttpGet]
+        [Authorize]
         // IActionResult = Interface que vem do .net - Permite que um metodo retorne um status code
         public IActionResult ListarClientes()
         {
@@ -56,18 +60,23 @@ namespace API_ECommerce.Controllers
             return Ok(cliente);
         }
 
-        [HttpGet("{email}/{senha}")]
-        public IActionResult Login(string email, string senha)
+        [HttpPost("login")]
+        public IActionResult Login(LoginDto login)
         {
-            var cliente = _clienteRepository.BuscarPorEmailSenha(email, senha);
+            var cliente = _clienteRepository.BuscarPorEmailSenha(login.Email, login.Senha);
 
             if (cliente == null)
             {
-                // 404 - Não Encontrado
-                return NotFound();
+                return Unauthorized("E-mail ou senha inválidos!");
             }
 
-            return Ok(cliente);
+            var tokenService = new TokenService();
+
+            var token = tokenService.GenerateToken(cliente.Email);
+
+            var json = new { Token = token };
+
+            return Ok(json);
         }
 
         [HttpGet("buscar/{nome}")]

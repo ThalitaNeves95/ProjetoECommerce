@@ -68,9 +68,19 @@ namespace API_ECommerce.Repositories
         {
             // Encontrar o Cliente que possui o e-mail e senha fornecidos
             // Quando eu quero 1 só coisa, utilizo o FirstOrDefault
-            var clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email && c.Senha == senha);
+            var clienteEncontrado = _context.Clientes.FirstOrDefault(c => c.Email == email);
 
-            return clienteEncontrado;
+            // Caso não encontre, retorno nulo
+            if(clienteEncontrado == null)
+            return null;
+
+            var passwordService = new PasswordService();
+
+            // Verificar se a senha do usuário gera a mesma Hash
+            var resultado = passwordService.VerificarSenha(clienteEncontrado, senha);
+
+            if(resultado == true) return clienteEncontrado;
+            return null;
         }
 
         public Cliente? BuscarPorId(int id)

@@ -27,27 +27,6 @@
   },
   {
     "ContainingType": "API_ECommerce.Controllers.ClienteController",
-    "Method": "Login",
-    "RelativePath": "api/Cliente/{email}/{senha}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "senha",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "API_ECommerce.Controllers.ClienteController",
     "Method": "ListarPorId",
     "RelativePath": "api/Cliente/{id}",
     "HttpMethod": "GET",
@@ -110,6 +89,22 @@
       {
         "Name": "nome",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API_ECommerce.Controllers.ClienteController",
+    "Method": "Login",
+    "RelativePath": "api/Cliente/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "login",
+        "Type": "API_ECommerce.DTO.LoginDto",
         "IsRequired": true
       }
     ],
